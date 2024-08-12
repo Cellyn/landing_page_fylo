@@ -1,0 +1,44 @@
+/* variables de colores a usar */
+:root{
+    --color-main:hsl(218, 28%, 13%);
+    --color-footer: hsl(216, 53%, 9%);
+    --color-comentarios: hsl(219, 30%, 18%);
+    --color-sign-up: hsl(217, 28%, 15%);
+    --blanco:#FFF;
+}
+
+/* restablecer valores por defecto */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor_principal{
+    background-color: var(--color-main);
+    color: var(--blanco);
+}
+
+/* colocar los elementos de la lista en fila */
+.seccion_nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 1rem;
+    
+}
+
+.nav-link{
+    text-decoration: none;
+    color: var(--blanco);
+
+}
+
+/* colocar el logo y menu de navegacion esquinados */
+.seccion_nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion_footer{
+    background-color: var(--color-footer);
+    color: var(--blanco);
+}
