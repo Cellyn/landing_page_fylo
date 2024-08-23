@@ -1,9 +1,10 @@
 /* variables de colores a usar */
 :root{
-    --color-main:hsl(218, 28%, 13%);
+    --color-main:hsla(217, 27%, 13%, 0.95);
     --color-footer: hsl(216, 53%, 9%);
     --color-comentarios: hsl(219, 30%, 18%);
     --color-sign-up: hsl(217, 28%, 15%);
+    --color-btn: hsl(198, 83%, 65%);
     --blanco:#FFF;
 }
 
@@ -11,34 +12,333 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* aplicamos un color de fondo al header y main, color de texto y espacio*/
+.fondo_y_texto{
+    /* aplicamos escpacio de 2.5rem arriba,  3rem a los lados y 0 abajo*/
+    padding: 2.5rem 3rem 0;
+    color: var(--blanco);
+    background-color: var(--color-main);
 }
 
 .contenedor_principal{
-    background-color: var(--color-main);
-    color: var(--blanco);
+    /* Colocamos la imagen de fondo */
+    background-image: url("https://res.cloudinary.com/dpo0d4fre/image/upload/v1723415458/bg-curvy-mobile_ajbft9.svg");
+    background-size: cover; 
+    /* Centra horizontalmente y ancla en la parte inferior */
+    background-position: center bottom; 
+    /* Evita que la imagen se repita */
+    background-repeat: no-repeat;
+    padding-bottom: 15rem;
 }
 
 /* colocar los elementos de la lista en fila */
 .seccion_nav ul li{
     display: inline-block;
     list-style: none;
-    margin: 1rem;
-    
+    margin: 1rem;  
 }
 
 .nav-link{
     text-decoration: none;
     color: var(--blanco);
-
 }
 
 /* colocar el logo y menu de navegacion esquinados */
 .seccion_nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
+.logo{
+    height: 40px;
+}
+
+/* aplicamos estilo a los titulos */
+h2, h3, h4, h5{
+    font-weight: 2rem;
+}
+
+/* centramos y damos estilo a los elementos de la seccion introduccion*/
+.seccion_introduccion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* centra el texto dentro de los elementos hijos */
+    text-align: center;
+    flex-flow: column nowrap;
+}
+
+.introduccion_imagen{
+    position: relative;
+    flex: 0 0 425px;
+}
+
+.introduccion_imagen img{
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+
+    transition: all .2s;
+    /** anidamos el efecto hover */
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+.introduccion_contenido{
+    max-width: 600px;
+}
+
+.introduccion_titulo{
+    line-height: 2.5rem;
+    font-size: 2rem;
+}
+
+.introduccion_parrafo{
+    margin: 1.5rem 2rem;
+}
+
+.boton{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 2rem;
+    color: var(--blanco);
+    font-weight: bold;
+    background-color: var(--color-btn);
+}
+
+/* Seccion caracteristicas */
+#seccion_caracteristicas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-flow: row wrap;
+    margin: 3rem 0;
+}
+
+.caracteristicas_tarjeta{
+    width: 40%;
+    height: 200px;
+    margin: 2.5rem;
+}
+
+.caracteristicas_tarjeta img{
+    width: 100%;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 2rem;
+}
+
+/* Seccion stay productive */
+#seccion_productive{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.productive_imagen{
+    position: relative;
+    flex: 0 0 50%;
+}
+
+.productive_imagen img{
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+}
+
+.productive_contenido{
+    position: relative;
+    flex: 0 0 45%;
+    /* agregar espacio entre los elementos para no poner padding ni margen a cada uno */
+    height: 220px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.productive_contenido a{
+    color: hsl(176, 68%, 64%);
+    text-underline-offset: 8px;
+}
+
+.flecha_img{
+    width: 2rem;
+    height: 2rem;
+}
+
+/* seccion comentarios */
+
+.comentarios_contenedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.comentarios_tarjeta{
+    position: relative;
+    flex: 0 0 30%;
+    background-color: var(--color-comentarios);
+    padding: 2.5rem 2rem 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px var(--color-footer);
+}
+
+.perfil_imagen{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.comentarios_perfil{
+    display: flex;
+}
+
+/* url imagen de fondo grande */
+/* background-image: C; */
+/* url imagen mas pequeña */
+/* background-image: url("https://res.cloudinary.com/dpo0d4fre/image/upload/v1723415458/bg-curvy-mobile_ajbft9.svg"); */
+    
+/* Seccion del pie de pagina */
 .seccion_footer{
     background-color: var(--color-footer);
     color: var(--blanco);
+    padding: 10rem 3rem 3rem;
+    position: relative;
+}
+
+/* Seccion de registro superpuesta en el footer */
+#seccion_registro{
+    position: absolute;
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    padding: 3rem 3.5rem 2rem;
+    background-color: var(--color-sign-up);
+    text-align: center;
+    /* Sale un 60% hacia arriba del contenedor */
+    top: -30%;
+    left: 50%;
+    /* Se alinea horizontalmente en el centro */
+    transform: translate(-50%, 0%);
+}
+
+.registro_form{
+    padding-top: 2rem;
+}
+
+.input_email{
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-radius: 2rem;
+    padding: 0 1.5rem;
+    box-shadow: 0 0 10px 2px var(--color-footer);
+    margin-right: 1rem;
+}
+
+/* Seccion del contenido del footer */
+.seccion_footer ul li{
+    list-style: none;
+    margin-bottom: 1rem;
+}
+.footer_link{
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.seccion_footer .logo{
+    margin-left: 2rem;
+}
+
+.footer_contenido{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    margin: 2rem auto;
+}
+
+.footer_ubicacion{
+    width: 400px;
+}
+
+.icono_parrafo{
+    display: flex;
+    align-items: flex-start;
+}
+
+.icono{
+    margin-right: 1.5rem;
+    width: 20px;
+    height: 20px;
+}
+
+.footer_redes{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Media Query */
+@media(max-width: 768px){
+    .fondo_y_texto{
+        padding: 2rem;
+    }
+
+    .caracteristicas_tarjeta{
+        width: 100%;
+    }
+
+    .productive_imagen, .productive_contenido{
+        flex-basis: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .comentarios_tarjeta{
+        flex-basis: 85%;
+        margin-bottom: 2.5rem;
+    }
+
+    #seccion_registro{
+        width: 90%;
+        padding: 3rem 2rem 2rem;
+        top: -20%;
+        left: 50%;
+    }
+
+    .input_email, .registro_form > .boton{
+        width: 90%;
+        height: 60px;
+        margin: 1rem;
+    }
+
+    .contenedor_principal{
+        padding-bottom: 20rem;
+    }
+
+    .seccion_footer{
+        padding-top: 20rem;
+    }
+
+    .footer_contenido{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer_contactos{
+        margin: -1rem 0 1rem;
+    }
+
+    .seccion_footer .logo{
+        margin-left: 1rem;
+    }
 }
